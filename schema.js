@@ -33,5 +33,3 @@ module.exports = new GraphQLSchema({
 
 });
 
-
-lsgjklfgfsjkgsfdgjklsfdgjksfdkjgsjkgkjfgsgsjagsagjksrjgkasjkgkjasgjkaskgjk
