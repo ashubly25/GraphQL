@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev:server": "nodemon server.js"
+    "json:server": "json-server --watch data.json"
   },
   "repository": {
     "type": "git",
