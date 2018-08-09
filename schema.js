@@ -27,21 +27,30 @@ const CustomerType = new GraphQLObjectType({
 
 const RootQuery = new GraphQLObjectType({
 	name:'RootQuryType',
-	customer:{
-		type:CustomerType,
-		args:{
-			id:{GraphQLString}
-		},
-		resolve(parentValue, args){
-			for(let i=0; i < customers.length;i++){
-				if (customers[i].id == args.id){
-					return customers[i];
+	fields:{
+			customer:{
+			type:CustomerType,
+			args:{
+				id:{GraphQLString}
+			},
+			resolve(parentValue, args){
+				for(let i=0; i < customers.length;i++){
+					if (customers[i].id == args.id){
+						return customers[i];
+					}
 				}
+			}
+		},
+		customers:{
+			type: new GraphQLList(CustomerType),
+			resolve(parentValue, args){
+				return customers;
 			}
 		}
 	}
 });
 
 module.exports = new GraphQLSchema({
+	query: RootQuery
   
 });
