@@ -36,13 +36,15 @@ const RootQuery = new GraphQLObjectType({
 					}
 				}
 				*/
-				return axios
+				return axios.get('htt://localhost:3000/customers/'+args.id)
+					.then(res => res.data);
 			}
 		},
 		customers:{
 			type: new GraphQLList(CustomerType),
 			resolve(parentValue, args){
-				return customers;
+				return axios.get('htt://localhost:3000/customers')
+					.then(res => res.data);
 			}
 		}
 	}
