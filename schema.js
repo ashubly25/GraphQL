@@ -59,7 +59,7 @@ const mutation = new GraphQLObjectType({
 				id:{type: new GraphQLNonNull(GraphQLString)}
 				},
 			resolve(parentValue, args){
-				return axios.post('http:/
+				return axios.post('http://localhost:3000/customers'+args.id)
 				.then(res => res.data);
 			}
 		}
