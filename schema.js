@@ -56,7 +56,7 @@ const mutation = new GraphQLObjectType({
 		addCustomer:{
 			type:CustomerType,
 			args:{
-				id:{type: GraphQLObjectType}
+				id:{type: GraphQLNonNull(GraphQLString)}
 				},
 			resolve(parentValue, args){
 				return axios.post('http://localhost:3000/customers'+args.id)
